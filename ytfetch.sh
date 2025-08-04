@@ -5,10 +5,10 @@
 # ==============================================
 M3U_PLAYLIST="playlist.m3u"
 JSON_PLAYLIST="playlist.json"
-LOG_FILE="playlistlog.txt"
+LOG_FILE="playlist_log.txt"
 CHANNELS_FILE="channels.txt"
 LOCAL_DIR="/storage/emulated/0/r1d3x6/YOUTUBE"
-GIT_REPO="git@github.com:kgkaku/nwalkaku.git"
+GIT_REPO="git@github.com:kgkaku/nwalkaku.git"  # Changed repo name
 GIT_BRANCH="main"
 TIMEOUT_SECONDS=15
 
@@ -42,7 +42,7 @@ setup_github() {
     if [ ! -d .git ]; then
         git init --quiet
         git remote add origin "$GIT_REPO"
-        git branch -M "$GIT_BRANCH"
+        git checkout -b "$GIT_BRANCH" --quiet
     else
         # Ensure remote is correct
         git remote set-url origin "$GIT_REPO"
@@ -101,24 +101,36 @@ process_channels() {
 }
 
 # ==============================================
-# GITHUB PUSH
+# GITHUB PUSH (UPDATED)
 # ==============================================
 push_to_github() {
     echo -e "${CYAN}Pushing to GitHub...${NC}"
     
+    # Ensure we're on the correct branch
+    git checkout -b "$GIT_BRANCH" --quiet 2>/dev/null || git branch -M "$GIT_BRANCH"
+    
     git add .
     git commit -m "Auto-update $(date +'%Y-%m-%d %H:%M')" --quiet
     
-    if git push -u origin "$GIT_BRANCH" --force --quiet; then
+    # First try normal push
+    if git push -u origin "$GIT_BRANCH" --quiet 2>/dev/null; then
         echo -e "${GREEN}Success!${NC}"
-        echo -e "View at: ${YELLOW}https://github.com/$(echo "$GIT_REPO" | cut -d: -f2 | sed 's/.git$//')${NC}"
     else
-        echo -e "${RED}Push failed!${NC}"
-        echo "Try manually:"
-        echo "1. cd $LOCAL_DIR"
-        echo "2. GIT_SSH_COMMAND='ssh -v' git push -u origin $GIT_BRANCH --force"
-        return 1
+        # Fallback to force push
+        echo -e "${YELLOW}Retrying with force push...${NC}"
+        if git push -u origin "$GIT_BRANCH" --force --quiet; then
+            echo -e "${GREEN}Success!${NC}"
+        else
+            echo -e "${RED}Push failed!${NC}"
+            echo "Manual recovery:"
+            echo "1. cd $LOCAL_DIR"
+            echo "2. git branch -M main"
+            echo "3. git push -u origin main --force"
+            return 1
+        fi
     fi
+    
+    echo -e "View at: ${YELLOW}https://github.com/kgkaku/nwalkaku${NC}"
 }
 
 # ==============================================
