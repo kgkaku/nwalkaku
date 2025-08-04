@@ -1,0 +1,3 @@
++ YTDLP=/data/data/com.termux/files/usr/bin/yt-dlp
++ '[rest' of your script with ALL www.youtube.com 'URLs]'
+youtube_live_fetcher.sh: line 4: [rest: command not found

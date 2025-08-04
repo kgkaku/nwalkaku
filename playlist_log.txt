@@ -1,0 +1,172 @@
+===== [2025-07-23 09:31:07] STARTING UPDATE =====
+[2025-07-23 09:31:07] Checking internet connection
+[2025-07-23 09:31:08] Processing (1/29): Essex Cricket
+ERROR: [youtube:tab] @EssexCricketTV: The channel is not currently live
+  WARNING: No channel ID found for Essex Cricket
+ERROR: [youtube:tab] @EssexCricketTV: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @EssexCricketTV: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @EssexCricketTV: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:32:07] Processing (2/29): Sports Eye TV
+ERROR: [youtube:tab] @sportsEyeTV: The channel is not currently live
+  WARNING: No channel ID found for Sports Eye TV
+ERROR: [youtube:tab] @sportsEyeTV: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @sportsEyeTV: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @sportsEyeTV: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:33:15] Processing (3/29): Cricket SA TV
+ERROR: [youtube:tab] @cricketsatv: The channel is not currently live
+  WARNING: No channel ID found for Cricket SA TV
+ERROR: [youtube:tab] @cricketsatv: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @cricketsatv: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @cricketsatv: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:34:11] Processing (4/29): Zee 24 Ghanta
+  Fetched logo: https://i.ytimg.com/vi/YTIb37hyAf0/maxresdefault.jpg
+[2025-07-23 09:35:04] Processing (5/29): ABC News
+  Fetched logo: https://i.ytimg.com/vi/iipR5yUp36o/maxresdefault.jpg
+[2025-07-23 09:36:04] Processing (6/29): Saudi Sunnah TV
+  Fetched logo: https://i.ytimg.com/vi/6yNfFF9i38M/maxresdefault.jpg
+[2025-07-23 09:36:50] Processing (7/29): Ekhon TV
+  Fetched logo: https://i.ytimg.com/vi/0-sJAZCFlVI/maxresdefault.jpg
+[2025-07-23 09:37:26] Processing (8/29): Channel 24
+  Fetched logo: https://i.ytimg.com/vi/hm0sDNIunYU/maxresdefault.jpg
+[2025-07-23 09:38:11] Processing (9/29): Rabbit Hole Sports
+ERROR: [youtube:tab] @RabbitholebdSports: The channel is not currently live
+  WARNING: No channel ID found for Rabbit Hole Sports
+ERROR: [youtube:tab] @RabbitholebdSports: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @RabbitholebdSports: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @RabbitholebdSports: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:39:14] Processing (10/29): Independent TV
+  Fetched logo: https://i.ytimg.com/vi/ikUP36ZnN2U/maxresdefault.jpg
+[2025-07-23 09:40:07] Processing (11/29): DBC News
+  Fetched logo: https://i.ytimg.com/vi/A7wWbGru15I/maxresdefault.jpg
+[2025-07-23 09:41:01] Processing (12/29): Jamuna TV
+  Fetched logo: https://i.ytimg.com/vi/aAcThHlCfBI/maxresdefault.jpg
+[2025-07-23 09:41:54] Processing (13/29): ATN News
+  Fetched logo: https://i.ytimg.com/vi/oRxf4aGMz2E/maxresdefault.jpg
+[2025-07-23 09:42:44] Processing (14/29): FOX Live
+  Fetched logo: https://i.ytimg.com/vi/GhYibmMkG1E/maxresdefault.jpg
+[2025-07-23 09:43:32] Processing (15/29): Saudi Quran TV
+  Fetched logo: https://i.ytimg.com/vi/ueIOUTyRS84/maxresdefault.jpg
+[2025-07-23 09:44:25] Processing (16/29): New Zealand Cricket
+ERROR: [youtube:tab] @nzctv: The channel is not currently live
+  WARNING: No channel ID found for New Zealand Cricket
+ERROR: [youtube:tab] @nzctv: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @nzctv: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @nzctv: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:45:24] Processing (17/29): Geo News
+  Fetched logo: https://i.ytimg.com/vi/S6SCo-VkveY/maxresdefault.jpg
+[2025-07-23 09:46:15] Processing (18/29): Bangladesh Cricket
+ERROR: [youtube] 09lDAHhHXks: This live event will begin in a few moments.
+  WARNING: No channel ID found for Bangladesh Cricket
+ERROR: [youtube] 09lDAHhHXks: This live event will begin in a few moments.
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube] 09lDAHhHXks: This live event will begin in a few moments.
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube] 09lDAHhHXks: This live event will begin in a few moments.
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:47:27] Processing (19/29): T Sports Bangladesh
+ERROR: [youtube:tab] @Tsportsbd: The channel is not currently live
+  WARNING: No channel ID found for T Sports Bangladesh
+ERROR: [youtube:tab] @Tsportsbd: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @Tsportsbd: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @Tsportsbd: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:48:37] Processing (20/29): England Cricket
+ERROR: [youtube:tab] @officialenglandcricket: The channel is not currently live
+  WARNING: No channel ID found for England Cricket
+ERROR: [youtube:tab] @officialenglandcricket: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @officialenglandcricket: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @officialenglandcricket: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:49:39] Processing (21/29): Sports Central
+ERROR: [youtube:tab] @SportsCentralOfficial: The channel is not currently live
+  WARNING: No channel ID found for Sports Central
+ERROR: [youtube:tab] @SportsCentralOfficial: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @SportsCentralOfficial: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @SportsCentralOfficial: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:50:29] Processing (22/29): 24/7 Mr Bean
+  Fetched logo: https://i.ytimg.com/vi/amzgpxDsJjQ/maxresdefault.jpg
+[2025-07-23 09:51:30] Processing (23/29): Sky Sports Cricket
+ERROR: [youtube:tab] @skysportscricket: The channel is not currently live
+  WARNING: No channel ID found for Sky Sports Cricket
+ERROR: [youtube:tab] @skysportscricket: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @skysportscricket: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @skysportscricket: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:52:46] Processing (24/29): Sky News
+  Fetched logo: https://i.ytimg.com/vi/YDvsBbKfLPA/maxresdefault.jpg
+[2025-07-23 09:53:46] Processing (25/29): Australian Cricket Board
+ERROR: [youtube:tab] @ACBofficial: The channel is not currently live
+  WARNING: No channel ID found for Australian Cricket Board
+ERROR: [youtube:tab] @ACBofficial: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @ACBofficial: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @ACBofficial: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:54:57] Processing (26/29): Somoy TV
+  Fetched logo: https://i.ytimg.com/vi/TdwhCOFh9OA/maxresdefault.jpg
+[2025-07-23 09:55:56] Processing (27/29): West Indies Cricket
+  Fetched logo: https://i.ytimg.com/vi/HBs9lWNwCyo/maxresdefault.jpg
+[2025-07-23 09:56:57] Processing (28/29): Al Jazeera English
+  Fetched logo: https://i.ytimg.com/vi/gCNeDWCI0vo/maxresdefault.jpg
+[2025-07-23 09:57:58] Processing (29/29): Yorkshire Cricket
+ERROR: [youtube:tab] @yorkscricket: The channel is not currently live
+  WARNING: No channel ID found for Yorkshire Cricket
+ERROR: [youtube:tab] @yorkscricket: The channel is not currently live
+  WARNING: Attempt 1 failed to get stream URL
+ERROR: [youtube:tab] @yorkscricket: The channel is not currently live
+  WARNING: Attempt 2 failed to get stream URL
+ERROR: [youtube:tab] @yorkscricket: The channel is not currently live
+  WARNING: Attempt 3 failed to get stream URL
+  ERROR: Failed to get stream URL
+[2025-07-23 09:59:02] SUCCESS: Updated 17/29 channels
+===== [2025-07-23 09:59:02] UPDATE COMPLETED =====
+ERROR: [youtube:tab] @EssexCricketTV: The channel is not currently live
+ERROR: [youtube:tab] @sportsEyeTV: The channel is not currently live
+ERROR: [youtube:tab] @cricketsatv: The channel is not currently live
+ERROR: [youtube:tab] @RabbitholebdSports: The channel is not currently live
+ERROR: [youtube] Op2-DZ9GEy8: This live event will begin in a few moments.
+ERROR: [youtube:tab] @atnnewsltd: The channel is not currently live
+ERROR: [youtube:tab] @nzctv: The channel is not currently live
+ERROR: [youtube] 09lDAHhHXks: This live event will begin in a few moments.
+ERROR: [youtube:tab] @Tsportsbd: The channel is not currently live
+ERROR: [youtube:tab] @officialenglandcricket: The channel is not currently live
+ERROR: [youtube:tab] @skysportscricket: The channel is not currently live
+ERROR: [youtube:tab] @ACBofficial: The channel is not currently live
+ERROR: [youtube:tab] @WindiesCricket: The channel is not currently live
+ERROR: [youtube:tab] @yorkscricket: The channel is not currently live
