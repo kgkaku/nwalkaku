@@ -3,16 +3,16 @@
 # ==============================================
 # CONFIGURATION
 # ==============================================
-M3U_PLAYLIST="playlistm3u"
+M3U_PLAYLIST="playlist.m3u"
 JSON_PLAYLIST="playlist.json"
 LOG_FILE="playlistlog.txt"
 CHANNELS_FILE="channels.txt"
 LOCAL_DIR="/storage/emulated/0/r1d3x6/YOUTUBE"
 GIT_REPO="git@github.com:kgkaku/nwalkaku.git"
 GIT_BRANCH="main"
-TIMEOUT_SECONDS=15  # Increased timeout to 15 seconds
+TIMEOUT_SECONDS=15
 
-# Colors for output
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -25,25 +25,28 @@ NC='\033[0m'
 mkdir -p "$LOCAL_DIR"
 cd "$LOCAL_DIR" || exit
 
-# Fix Git security error
+# Fix Git security
 git config --global --add safe.directory "$LOCAL_DIR"
 
 # ==============================================
-# GITHUB SSH SETUP
+# GITHUB SETUP
 # ==============================================
 setup_github() {
-    echo -e "${CYAN}Configuring GitHub SSH...${NC}"
+    echo -e "${CYAN}Configuring GitHub...${NC}"
     
+    # SSH Setup
     mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
+    [ ! -f ~/.ssh/known_hosts ] && ssh-keyscan github.com >> ~/.ssh/known_hosts
     
-    if ! grep -q "github.com" ~/.ssh/known_hosts 2>/dev/null; then
-        ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
-        chmod 600 ~/.ssh/known_hosts
+    # Initialize Git
+    if [ ! -d .git ]; then
+        git init --quiet
+        git remote add origin "$GIT_REPO"
+        git branch -M "$GIT_BRANCH"
+    else
+        # Ensure remote is correct
+        git remote set-url origin "$GIT_REPO"
     fi
-    
-    git config --global user.name "Playlist Push Bot"
-    git config --global user.email "221880753+kgkaku@users.noreply.github.com"  # Replace with your GitHub no-reply email
 }
 
 # ==============================================
@@ -56,34 +59,27 @@ process_channels() {
     echo "#EXTM3U" > "$M3U_PLAYLIST"
     echo '[' > "$JSON_PLAYLIST"
     
-    local total=$(wc -l < "$CHANNELS_FILE")
+    local total=$(grep -v '^#' "$CHANNELS_FILE" | wc -l)
     local count=0
     local success=0
     local first_entry=true
     
-    while IFS= read -r line; do
+    while IFS='|' read -r name url; do
+        # Skip empty/commented lines
+        [[ -z "$name" || "$name" == \#* ]] && continue
+        
         ((count++))
+        echo -ne "${YELLOW}Processing $count/$total:${NC} $name..."
         
-        # Skip empty lines and comments
-        [[ -z "$line" || "$line" == \#* ]] && continue
-        
-        echo -ne "${YELLOW}Processing $count/$total:${NC} ${line%%|*}..."
-        
-        # Extract URL and name (format: "Channel Name|URL")
-        local name="${line%%|*}"
-        local url="${line#*|}"
-        
-        # Fetch stream with timeout
-        local stream=$(timeout $TIMEOUT_SECONDS yt-dlp -f "best" -g --no-warnings "$url" 2>> "$LOG_FILE")
-        
+        # Fetch data with timeout
+        stream=$(timeout $TIMEOUT_SECONDS yt-dlp -f "best" -g --no-warnings "$url" 2>> "$LOG_FILE")
         if [ -z "$stream" ]; then
-            echo -e "${RED} TIMEOUT${NC}"
+            echo -e "${RED} FAILED${NC}"
             continue
         fi
         
-        # Get metadata
-        local logo=$(timeout $TIMEOUT_SECONDS yt-dlp --get-thumbnail "$url" 2>> "$LOG_FILE")
-        local id=$(timeout $TIMEOUT_SECONDS yt-dlp --get-id "$url" 2>> "$LOG_FILE")
+        logo=$(timeout $TIMEOUT_SECONDS yt-dlp --get-thumbnail "$url" 2>> "$LOG_FILE")
+        id=$(timeout $TIMEOUT_SECONDS yt-dlp --get-id "$url" 2>> "$LOG_FILE")
         
         # Write to M3U
         echo -e "#EXTINF:-1 tvg-logo=\"${logo}\",$name\n$stream" >> "$M3U_PLAYLIST"
@@ -98,34 +94,30 @@ process_channels() {
         
         echo -e "${GREEN} OK${NC}"
         ((success++))
-    done < "$CHANNELS_FILE"
+    done < <(grep -v '^#' "$CHANNELS_FILE")
     
-    # Finalize JSON
-    echo -e "\n]" >> "$JSON_PLAYLIST"
+    echo "]" >> "$JSON_PLAYLIST"
     echo -e "\n${GREEN}Processed $success/$total channels successfully${NC}"
 }
 
 # ==============================================
-# GIT PUSH
+# GITHUB PUSH
 # ==============================================
 push_to_github() {
     echo -e "${CYAN}Pushing to GitHub...${NC}"
     
-    if [ ! -d .git ]; then
-        git init --quiet
-        git remote add origin "$GIT_REPO"
-        git branch -M "$GIT_BRANCH"
-    fi
-    
     git add .
     git commit -m "Auto-update $(date +'%Y-%m-%d %H:%M')" --quiet
     
-    if git push -u origin "$GIT_BRANCH" --quiet; then
-        echo -e "${GREEN}Success!${NC} View at:"
-        echo -e "${YELLOW}https://github.com/$(echo $GIT_REPO | cut -d: -f2 | sed 's/.git$//')${NC}"
+    if git push -u origin "$GIT_BRANCH" --force --quiet; then
+        echo -e "${GREEN}Success!${NC}"
+        echo -e "View at: ${YELLOW}https://github.com/$(echo "$GIT_REPO" | cut -d: -f2 | sed 's/.git$//')${NC}"
     else
-        echo -e "${RED}Push failed!${NC} Debug with:"
-        echo "cd $LOCAL_DIR && GIT_SSH_COMMAND='ssh -v' git push"
+        echo -e "${RED}Push failed!${NC}"
+        echo "Try manually:"
+        echo "1. cd $LOCAL_DIR"
+        echo "2. GIT_SSH_COMMAND='ssh -v' git push -u origin $GIT_BRANCH --force"
+        return 1
     fi
 }
 
@@ -135,6 +127,13 @@ push_to_github() {
 clear
 echo -e "${CYAN}YouTube Playlist Generator${NC}"
 echo -e "============================\n"
+
+# Verify channels file exists
+if [ ! -f "$CHANNELS_FILE" ]; then
+    echo -e "${RED}Error: Missing $CHANNELS_FILE${NC}"
+    echo "Create it with format: Channel Name|URL"
+    exit 1
+fi
 
 setup_github
 process_channels
